@@ -59,7 +59,7 @@ namespace ContactBookApp
             {
                 Console.Clear();
                 Console.WriteLine("========================================");
-                Console.WriteLine("    CONTACT BOOK: DSU & GRAPH THEORY   ");
+                Console.WriteLine("              CONTACT BOOK              ");
                 Console.WriteLine("========================================");
                 Console.WriteLine($" Total: {allContacts.Count} | View: {filteredView.Count}");
                 Console.WriteLine("----------------------------------------");
