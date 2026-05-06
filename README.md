@@ -15,4 +15,4 @@ This project is a C# Console Application developed on **macOS** using **.NET 8.0
 ## How to Run
 1. Ensure you have the .NET SDK installed.
 2. Open your terminal in the project directory.
-3. Run the following command: ## dotnet run
+3. Run the following command: dotnet run
