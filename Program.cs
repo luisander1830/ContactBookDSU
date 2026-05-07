@@ -176,11 +176,11 @@ namespace ContactBookApp
         {
             allContacts.Add(new Contact { FirstName = "Luisander", LastName = "Arroyo Rivera", Phone = "787-000-0000", Email = "larroyo@gmail.com" });
 
-            allContacts.Add(new Contact { FirstName = "Carlos", LastName = "Perez", Phone = "787-555-1234", Email = "cperez@gmail.com" });
-            allContacts.Add(new Contact { FirstName = "Elena", LastName = "Medina", Phone = "787-555-1234", Email = "elena@yahoo.com" });
+            allContacts.Add(new Contact { FirstName = "Carlos", LastName = "Perez", Phone = "787-555-1234", Email = "carlitos24@gmail.com" });
+            allContacts.Add(new Contact { FirstName = "Elena", LastName = "Medina", Phone = "787-555-1234", Email = "elenam@yahoo.com" });
             
             allContacts.Add(new Contact { FirstName = "Maria", LastName = "Santiago", Phone = "787-111-2222", Email = "msantiago@outlook.com" });
-            allContacts.Add(new Contact { FirstName = "Wanda", LastName = "Rivera", Phone = "787-333-4444", Email = "msantiago@outlook.com" });
+            allContacts.Add(new Contact { FirstName = "Wanda", LastName = "Rivera", Phone = "787-333-4444", Email = "wrivera14@outlook.com" });
         }
     }
 }
