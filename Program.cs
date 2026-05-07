@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -20,6 +20,7 @@ namespace ContactBookApp
     public class DuplicateSet
     {
         private int[] parents;
+
         public DuplicateSet(int n)
         {
             parents = new int[n];
@@ -59,13 +60,13 @@ namespace ContactBookApp
             {
                 Console.Clear();
                 Console.WriteLine("========================================");
-                Console.WriteLine("              CONTACT BOOK              ");
+                Console.WriteLine("        CONTACT BOOK - DSU REVIEW       ");
                 Console.WriteLine("========================================");
                 Console.WriteLine($" Total: {allContacts.Count} | View: {filteredView.Count}");
                 Console.WriteLine("----------------------------------------");
                 Console.WriteLine("1. View All Contacts");
                 Console.WriteLine("2. Filter Contacts (Search)");
-                Console.WriteLine("3. Sort by Last Name");
+                Console.WriteLine("3. Sort by Last Name (LINQ)");
                 Console.WriteLine("4. RUN DSU (Detect Duplicates)");
                 Console.WriteLine("5. Exit");
                 Console.Write("\nSelect an option: ");
@@ -96,19 +97,24 @@ namespace ContactBookApp
             var phoneTracker = new Dictionary<string, int>();
             var emailTracker = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
 
-
             for (int i = 0; i < n; i++)
             {
                 var c = allContacts[i];
+                
                 if (!string.IsNullOrEmpty(c.Phone))
                 {
-                    if (phoneTracker.ContainsKey(c.Phone!)) dsu.Union(phoneTracker[c.Phone!], i);
-                    else phoneTracker[c.Phone!] = i;
+                    if (phoneTracker.ContainsKey(c.Phone!)) 
+                        dsu.Union(phoneTracker[c.Phone!], i);
+                    else 
+                        phoneTracker[c.Phone!] = i;
                 }
+
                 if (!string.IsNullOrEmpty(c.Email))
                 {
-                    if (emailTracker.ContainsKey(c.Email!)) dsu.Union(emailTracker[c.Email!], i);
-                    else emailTracker[c.Email!] = i;
+                    if (emailTracker.ContainsKey(c.Email!)) 
+                        dsu.Union(emailTracker[c.Email!], i);
+                    else 
+                        emailTracker[c.Email!] = i;
                 }
             }
 
@@ -166,26 +172,15 @@ namespace ContactBookApp
             Console.ReadLine();
         }
 
-
         static void SeedData()
         {
-            Random rnd = new Random();
-            string GenPhone() => $"787-{rnd.Next(100, 999)}-{rnd.Next(1000, 9999)}";
+            allContacts.Add(new Contact { FirstName = "Luisander", LastName = "Arroyo Rivera", Phone = "787-000-0000", Email = "larroyo@gmail.com" });
 
-            string myPhone = "787-000-0000";
-            allContacts.Add(new Contact { FirstName = "Luisander", LastName = "Arroyo Rivera", Phone = myPhone, Email = "larroyo@gmail.com" });
-
-            allContacts.Add(new Contact { FirstName = "Carlos", LastName = "Perez", Phone = GenPhone(), Email = "cperez88@gmail.com" });
-            allContacts.Add(new Contact { FirstName = "Maria", LastName = "Santiago", Phone = GenPhone(), Email = "msantiago@outlook.com" });
+            allContacts.Add(new Contact { FirstName = "Carlos", LastName = "Perez", Phone = "787-555-1234", Email = "cperez@gmail.com" });
+            allContacts.Add(new Contact { FirstName = "Elena", LastName = "Medina", Phone = "787-555-1234", Email = "elena@yahoo.com" });
             
-            allContacts.Add(new Contact { FirstName = "Wanda", LastName = "Rivera", Phone = GenPhone(), Email = "wanda100@gmail.com" }); 
-            
-            string sharedPhone = GenPhone();
-            allContacts.Add(new Contact { FirstName = "Elena", LastName = "Medina", Phone = sharedPhone, Email = "emedina@yahoo.com" });
-            allContacts.Add(new Contact { FirstName = "Israel", LastName = "Ortiz", Phone = sharedPhone, Email = "israel71@icloud.com" });
-
-            allContacts.Add(new Contact { FirstName = "Jose", LastName = "Ortiz", Phone = GenPhone(), Email = "jortiz_@gmail.com" });
-            allContacts.Add(new Contact { FirstName = "Sofia", LastName = "Rivera", Phone = GenPhone(), Email = "srivera@gmail.com" });
+            allContacts.Add(new Contact { FirstName = "Maria", LastName = "Santiago", Phone = "787-111-2222", Email = "msantiago@outlook.com" });
+            allContacts.Add(new Contact { FirstName = "Wanda", LastName = "Rivera", Phone = "787-333-4444", Email = "msantiago@outlook.com" });
         }
     }
 }
